@@ -1,0 +1,14 @@
+<h1>Sign up</h1>
+
+<%= form_for @user do |f| %>
+  <%= f.label :name %><br/>
+  <%= f.text_field :name , placeholder: "Your name here" %><br/>
+
+  <%= f.submit "Sign up" %>
+
+<% end %>
+
+<p>
+  or
+</p>
+<%= link_to "Sign in", signin_path %>

@@ -1,0 +1,16 @@
+<h1>All Events</h1>
+
+<% @events.each do |e| %>
+<ul>
+  <li>
+  <%= e.creator.name %>
+  <%= e.description %><%= link_to "View event", e %>
+  </li>
+</ul>
+<% end %>
+
+<%= link_to "Sign in", signin_path %>
+<p>
+  New User?
+</p>
+<%= link_to "Signup", signup_path %>

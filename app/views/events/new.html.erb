@@ -1,0 +1,9 @@
+<h1>Create an Event</h1>
+
+<%= form_for @event do |e| %>
+
+  <%= e.label :description %><br/>
+  <%= e.text_area :description %><br/>
+
+  <%= e.submit "Create Event" %>
+<% end %>

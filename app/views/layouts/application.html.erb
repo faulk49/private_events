@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PrivateEvents</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+   <% if signed_in? %>
+          <p><%= current_user.name %> is signed in</p>
+          <%= link_to "Sign out", signout_path, method: "delete" %>
+          <%= link_to current_user.name, user_path(current_user.id) %>
+     <% end %>
+      <div>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value) %>
+      <% end %>
+  <%= link_to "View all events", root_url %>
+
+<%= yield %>
+
+</body>
+</html>

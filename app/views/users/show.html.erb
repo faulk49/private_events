@@ -1,0 +1,15 @@
+<h1><%= @user.name %>'s Events</p>
+  <% @user.events.each do |e| %>
+    <ul>
+      <li>
+      <%= e.description %>
+    </li>
+  </ul>
+  <% end %>
+
+ <%= link_to "Create a new Event", new_event_path %>
+
+
+
+
+
