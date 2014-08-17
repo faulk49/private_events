@@ -1,7 +1,28 @@
-<h3><%= @event.creator.name %></h3>
-
-<h4>Description of event</h4>
+<h3 class="text-center"><%= @event.creator.name %></h3>
+<h4>About Event</h4>
 <p><%= @event.description %></p><br/>
+<p><%= @event.date %></p>
+
+<% if signed_in? %>
+  <%= form_for(current_user.attendances.build(attended_event_id: @event.id)) do |f| %>
+    <div><%= f.hidden_field :attended_event_id %></div>
+    <%= f.submit "Attend", class: "btn btn-large btn-primary" %>
+  <% end %>
+  <% else %>
+    <p>Sign in now to attend!</p><%= link_to "Sign in", signin_path, class: "btn btn-primary" %>
+<% end %>
+
+<h5>Members Attending</h5>
+  <% @event.attendees.each do |f| %>
+  <ul>
+   <li><%= f.name %></li>
+ </ul>
+  <% end %>
+
+
+
+
+
 
 
 

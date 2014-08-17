@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+
+  def index
+    @users = User.all
+  end
   def new
     @user = User.new
   end
@@ -9,7 +13,6 @@ class UsersController < ApplicationController
       sign_in @user
       redirect_to @user
     else
-      flash.now[:error] = 'Invalid user name'
       render 'new'
     end
 
@@ -24,6 +27,6 @@ class UsersController < ApplicationController
   private
 
       def user_params
-        params.require(:user).permit(:name)
+        params.require(:user).permit(:name, :email)
       end
 end

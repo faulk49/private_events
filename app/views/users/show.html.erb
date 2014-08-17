@@ -1,4 +1,4 @@
-<h1><%= @user.name %>'s Events</p>
+<h1><%= @user.name %>'s Hosted Events</p>
   <% @user.events.each do |e| %>
     <ul>
       <li>
@@ -6,9 +6,11 @@
     </li>
   </ul>
   <% end %>
+<% if @user == current_user %>
+ <%= link_to "Create a new Event", new_event_path, class: "btn btn-lrg btn-primary" %>
+<% end %>
 
- <%= link_to "Create a new Event", new_event_path %>
-
+<h1>Events signed up to attend</h1>
 
 
 

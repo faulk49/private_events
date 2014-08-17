@@ -1,16 +1,26 @@
-<h1>All Events</h1>
+<h1 class="text-center">Browse Events</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Host</th>
+      <th>About</th>
+      <th>Date</th>
+      <th>Attending</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |e| %>
+    <tr>
+      <td><%= e.creator.name %></td>
+      <td><%= link_to e.description, e %></td>
+      <td><%= e.date %></td>
+      <td><%= e.attendees.count %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<% @events.each do |e| %>
-<ul>
-  <li>
-  <%= e.creator.name %>
-  <%= e.description %><%= link_to "View event", e %>
-  </li>
-</ul>
-<% end %>
-
-<%= link_to "Sign in", signin_path %>
-<p>
-  New User?
-</p>
-<%= link_to "Signup", signup_path %>
+    <p>
+      New User?
+    </p>
+    <%= link_to "Signup", signup_path, class: "btn btn-lrg btn-primary" %>

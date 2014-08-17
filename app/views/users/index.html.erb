@@ -1,0 +1,19 @@
+<h1 class="text-center">Members</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th class="text-center">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |e| %>
+    <tr>
+      <td class="text-center"><%= link_to e.name, e %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+    <p>
+      New User?
+    </p>
+    <%= link_to "Signup", signup_path, class: "btn btn-lrg btn-primary" %>

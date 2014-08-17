@@ -3,4 +3,6 @@ class Event < ActiveRecord::Base
   has_many :attendees, through: :attendances
   has_many :attendances, foreign_key: :attended_event_id
 
+
+
 end

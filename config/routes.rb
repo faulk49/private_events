@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-
-  resources :users, only: [:new, :create, :show]
+  resources :staticpages, only: [:index]
+  resources :users, only: [:index, :new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
   resources :events, only: [:index, :new, :create, :show]
 
-  root 'events#index'
+  resources :attendances, only: [:create]
+
+  root 'static_pages#index'
   match '/signup',  to: 'users#new',             via: 'get'
   match '/signin',  to: 'sessions#new',           via: 'get'
   match 'signout',  to: 'sessions#destroy',        via: 'delete'

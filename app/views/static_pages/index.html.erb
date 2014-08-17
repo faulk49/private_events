@@ -1,0 +1,13 @@
+ <div class="jumbotron">
+    <h1 class="text-center">Plan Your Event Today</h1>
+    <p class="text-center">With Event Planner, you can book events and also attend other members' events</p>
+   <div class="text-center">
+    <% if signed_in? %>
+     <%= link_to "Create an Event", new_event_path, class: "btn btn-success center" %>
+     <% else %>
+      <%= link_to "Create an Event", signin_path, class: "btn btn-success center" %>
+    <% end %>
+   </div>
+</div>
+
+

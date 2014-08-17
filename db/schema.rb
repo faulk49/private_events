@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140816002213) do
+ActiveRecord::Schema.define(version: 20140816170839) do
 
   create_table "attendances", force: true do |t|
     t.integer  "attendee_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140816002213) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_token"
+    t.string   "email"
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
