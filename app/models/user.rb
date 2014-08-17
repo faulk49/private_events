@@ -11,14 +11,27 @@ class User < ActiveRecord::Base
   has_many :attendances, foreign_key: :attendee_id
   has_many :attended_events, through: :attendances
 
+
+
     def attending?(event)
       event.attendees.include?(self)
     end
 
+    def attend!(event)
+      self.attendances.create!(attended_event_id: event.id)
+    end
 
-  def attend!(event)
-    self.attendances.create!(attended_event_id: event.id)
-  end
+    def previous_events
+      self.attended_events.where("date < ?", Date.today)
+    end
+
+
+    def upcoming_events
+      self.attended_events.where("date > ?", Date.today)
+    end
+
+
+
 
 
 

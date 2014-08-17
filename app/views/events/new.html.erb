@@ -3,7 +3,7 @@
 <div class="form-horizontal" role="form">
   <div class="form-group">
     <%= form_for @event do |e| %>
-
+      <%= render 'shared/error_messages', object: e.object %>
       <%= e.label :description %><br/>
       <%= e.text_area :description, class: "form-control" %><br/>
       <%= e.label :date %><br/>

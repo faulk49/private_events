@@ -5,11 +5,11 @@
 <%= form_for(:session, url: sessions_path) do |f| %>
 <%= f.label :name, class: "col-sm-2 control-label" %>
   <div class="col-sm-9">
-  <%= f.text_field :name, class: "form-control"  %><br/>
+  <%= f.text_field :name, class: "form-control", placeholder: "You name here"  %><br/>
 </div>
   <%= f.label :email, class: "col-sm-2 control-label" %>
   <div class="col-sm-9">
-  <%= f.text_field :email, class: "form-control" %><br/>
+  <%= f.text_field :email, class: "form-control", placeholder: "example@email.com" %><br/>
 </div>
 <div class="col-sm-offset-2 col-sm-10">
   <%= f.submit "Sign in", class: "btn btn-primary btn-lg" %>

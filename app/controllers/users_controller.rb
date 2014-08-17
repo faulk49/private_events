@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
+      flash[:success] = 'Yay! You are now a Member'
       redirect_to @user
     else
       render 'new'
@@ -20,6 +21,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @prev_events = @user.previous_events
+    @upcoming_events = @user.upcoming_events
   end
 
 

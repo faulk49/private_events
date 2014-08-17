@@ -1,4 +1,4 @@
-<h1><%= @user.name %>'s Hosted Events</p>
+<h1><%= @user.name %>'s Hosted Events</h1>
   <% @user.events.each do |e| %>
     <ul>
       <li>
@@ -10,8 +10,26 @@
  <%= link_to "Create a new Event", new_event_path, class: "btn btn-lrg btn-primary" %>
 <% end %>
 
-<h1>Events signed up to attend</h1>
+<h1>Previously Attended Events</h1>
+<% if @prev_events.any? %>
+  <% @prev_events.each do |p| %>
+    <ul>
+      <li><%= p.description %></li>
+      <li><%=  p.date %></li>
+    </ul>
+  <% end %>
+<% else %>
+    <p> No Events Attended</p>
+<% end %>
 
-
-
-
+<h1>Future Events to Attend</h1>
+<% if @upcoming_events.any? %>
+  <% @upcoming_events.each do |u| %>
+    <ul>
+      <li><%= u.description %></li>
+      <li><%= u.date %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>There are no planned events to attend</p>
+<% end %>
