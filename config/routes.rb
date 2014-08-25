@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :staticpages, only: [:index]
   resources :users, only: [:index, :new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :events, only: [:index, :new, :create, :show]
+  resources :events, only: [:index, :new, :create, :show, :destroy]
 
   resources :attendances, only: [:create]
 

@@ -2,7 +2,7 @@
   <% @user.events.each do |e| %>
     <ul>
       <li>
-      <%= e.description %>
+      <%= e.description %> <%= link_to "remove", e, method: 'delete' if current_user?(@user) %>
     </li>
   </ul>
   <% end %>
